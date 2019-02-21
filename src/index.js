@@ -8,10 +8,10 @@ module.exports = function getZerosCount(number, base) {
     NumZero += Math.floor(number/Math.pow(prime, i));
   }
 
-  function getPrime(){
-    for(let i = Math.floor(base/2); i > 2; i--){
-     if (base/i === Math.floor(base/i)){
-       for(let j = i-1; j > 1; j--){
+  function getPrime() {
+    for(let i = Math.floor(base/2); i > 2; i--) {
+     if (base/i === Math.floor(base/i)) {
+       for(let j = i-1; j > 1; j--) {
           if(i/j === Math.floor(i/j))
             break;
           if(i/j !== Math.floor(i/j) && j === 2)
@@ -21,5 +21,5 @@ module.exports = function getZerosCount(number, base) {
     }
     return base;
   }
-  return NumZero/powerPrime;
+  return Math.floor(NumZero/powerPrime);
 }
