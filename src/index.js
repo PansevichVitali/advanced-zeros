@@ -3,19 +3,21 @@ module.exports = function getZerosCount(number, base) {
   let powerPrime = 0;
   let qttZeros = 0;
   let cpyBase = base;
+  let cpyBaseFinal = base;
   while(cpyBase%prime === 0) {
     cpyBase /= prime;
     powerPrime++;
   }
-  while(Math.pow(prime,2) < cpyBase) {
+  if(Math.pow(prime,2) < cpyBase) {
+    cpyBase = base/prime;
     prime = getPrime(cpyBase);
     powerPrime = 0;
-    while(cpyBase%prime === 0) {
-      cpyBase /= prime;
+    while(cpyBaseFinal%prime === 0) {
+      cpyBaseFinal /= prime;
       powerPrime++;
     }
   }
-  for(let i = 1; number >= Math.pow(prime, i); i++) {
+  for(let i = 1; number > Math.pow(prime, i); i++) {
     qttZeros += Math.floor(number/Math.pow(prime, i));
   }
  
